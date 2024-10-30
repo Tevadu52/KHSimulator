@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 9065299523885714930, guid: 070d275f02bd8c04c8f4974b9c5dafda,
@@ -64,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065299523885714932, guid: 070d275f02bd8c04c8f4974b9c5dafda,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7ae34669011d6a146bc42fbbc546ed2b, type: 2}
     - target: {fileID: 9065299523885714935, guid: 070d275f02bd8c04c8f4974b9c5dafda,
@@ -73,6 +74,13 @@ PrefabInstance:
       value: Item_Potion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9065299523885714935, guid: 070d275f02bd8c04c8f4974b9c5dafda,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7317985636936587555}
   m_SourcePrefab: {fileID: 100100000, guid: 070d275f02bd8c04c8f4974b9c5dafda, type: 3}
 --- !u!1 &5807341548557711611 stripped
 GameObject:
@@ -80,7 +88,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3267849427819164940}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7700284095180167991
+--- !u!114 &7317985636936587555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,3 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d2b7d43a9ea2b488c9a037011f4b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+  _healValue: 10

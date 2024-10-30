@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 9065299523885714930, guid: 070d275f02bd8c04c8f4974b9c5dafda,
@@ -64,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065299523885714932, guid: 070d275f02bd8c04c8f4974b9c5dafda,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c46aab129ec9d58459c3810a23b8b385, type: 2}
     - target: {fileID: 9065299523885714935, guid: 070d275f02bd8c04c8f4974b9c5dafda,
@@ -73,6 +74,13 @@ PrefabInstance:
       value: Item_Gold
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9065299523885714935, guid: 070d275f02bd8c04c8f4974b9c5dafda,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4441928871813012542}
   m_SourcePrefab: {fileID: 100100000, guid: 070d275f02bd8c04c8f4974b9c5dafda, type: 3}
 --- !u!1 &7068944266405786500 stripped
 GameObject:
@@ -92,3 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fa67749a5ac4b4ba13549bef3f8107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+  _goldValue: 10

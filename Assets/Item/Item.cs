@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
         // consume bag
 
         _destroyFeedback?.Invoke();
-        Destroy(gameObject, 3f);
+        Destroy(gameObject);
     }
 
 }

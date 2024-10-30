@@ -19,7 +19,6 @@ public class PlayerMove : MonoBehaviour
     public event Action OnStartMove;
     public event Action OnStopMove;
 
-
     Coroutine MovementRoutine { get; set; }
 
     private void Reset()
@@ -41,13 +40,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<EntityHealth>().OnDeathAction += StopMoveInput;
         _move.action.started += StartMove;
         _move.action.canceled += StopMove;
     }
     private void OnDestroy()
     {
-        _move.action.started -= StartMove;
-        _move.action.canceled -= StopMove;
+        StopMoveInput();
     }
 
     private void StartMove(InputAction.CallbackContext obj)
@@ -76,6 +75,10 @@ public class PlayerMove : MonoBehaviour
         MovementRoutine = null;
     }
 
-
+    private void StopMoveInput()
+    {
+        _move.action.started -= StartMove;
+        _move.action.canceled -= StopMove;
+    }
 
 }
