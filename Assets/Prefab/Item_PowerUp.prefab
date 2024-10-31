@@ -93,3 +93,4 @@ MonoBehaviour:
   _destroyFeedback:
     m_PersistentCalls:
       m_Calls: []
+  _powerUpValue: 20

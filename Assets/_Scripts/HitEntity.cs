@@ -8,7 +8,7 @@ public class HitEntity : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out HitZone hit))
+        if(other.TryGetComponent(out HurtBox hit))
         {
             hit.TakeDamage(_damage);
         }

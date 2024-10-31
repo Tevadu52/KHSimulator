@@ -9,13 +9,14 @@ public class AnimatorBinding : MonoBehaviour
     [SerializeField, Required] Animator _animator;
 
     [SerializeField, Required] PlayerMove _move;
+    [SerializeField, Required] PlayerAttack _attack;
     [SerializeField, Required] EntityHealth _health;
 
     [AnimatorParam(nameof(_animator), AnimatorControllerParameterType.Bool)]
     [SerializeField] string _isWalkingBoolParam, _deadBoolParam;
 
     [AnimatorParam(nameof(_animator), AnimatorControllerParameterType.Trigger)]
-    [SerializeField] string _getHitTriggerParam;
+    [SerializeField] string _getHitTriggerParam, _attackTriggerParam;
 
     private void Reset()
     {
@@ -25,6 +26,7 @@ public class AnimatorBinding : MonoBehaviour
         _isWalkingBoolParam = "Walking";
         _deadBoolParam = "Dead";
         _getHitTriggerParam = "GetHit";
+        _getHitTriggerParam = "Attack";
     }
 
 
@@ -34,6 +36,7 @@ public class AnimatorBinding : MonoBehaviour
         _move.OnStopMove += _move_OnStopMove;
         _health.OnHitAction += _getHit;
         _health.OnDeathAction += _die;
+        _attack.OnAttack += _attack_Attack;
     }
 
     private void _move_OnStartMove()
@@ -45,14 +48,18 @@ public class AnimatorBinding : MonoBehaviour
     {
         _animator.SetBool(_isWalkingBoolParam, false);
     }
-    public void _die()
+    private void _die()
     {
         _getHit();
         _animator.SetBool(_deadBoolParam, true);
     }
-    public void _getHit()
+    private void _getHit()
     {
         _animator.SetTrigger(_getHitTriggerParam);
     }
 
+    private void _attack_Attack()
+    {
+        _animator.SetTrigger(_attackTriggerParam);
+    }
 }

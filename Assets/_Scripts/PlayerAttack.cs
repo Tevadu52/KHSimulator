@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] InputActionReference _attack;
+    [SerializeField] EntityHealth _playerHealth;
 
     public event Action OnAttack;
 
@@ -15,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<EntityHealth>().OnDeathAction += StopAttackInput;
+        _playerHealth.OnDeathAction += StopAttackInput;
         _attack.action.started += StartAttack;
     }
     private void OnDestroy()

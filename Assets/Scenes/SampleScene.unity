@@ -1515,7 +1515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &863578698
 Transform:
   m_ObjectHideFlags: 0
@@ -1967,6 +1967,7 @@ MonoBehaviour:
   _move: {fileID: 7317242067884208208, guid: 7465c15ff2f50e14295da1356a60d5be, type: 3}
   _rb: {fileID: 1349007865}
   _speed: 10
+  _playerHealth: {fileID: 1349007869}
 --- !u!114 &1349007868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2044,6 +2045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attack: {fileID: -8057493745806942244, guid: 7465c15ff2f50e14295da1356a60d5be,
     type: 3}
+  _playerHealth: {fileID: 1349007869}
 --- !u!1001 &1576631183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2731,7 +2733,7 @@ GameObject:
   - component: {fileID: 1744603404}
   - component: {fileID: 1744603405}
   m_Layer: 0
-  m_Name: HitZone
+  m_Name: HurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2901,10 +2903,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1794143068}
   _move: {fileID: 1349007867}
+  _attack: {fileID: 1349007871}
   _health: {fileID: 1349007869}
   _isWalkingBoolParam: Walking
   _deadBoolParam: Dead
   _getHitTriggerParam: GetHit
+  _attackTriggerParam: Attack
 --- !u!1 &1850274031
 GameObject:
   m_ObjectHideFlags: 0

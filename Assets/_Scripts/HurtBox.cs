@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class HitZone : MonoBehaviour
+public class HurtBox : MonoBehaviour
 {
     [SerializeField] EntityHealth _playerHealth;
 

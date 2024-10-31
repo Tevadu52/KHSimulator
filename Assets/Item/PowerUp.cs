@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PowerUp : Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] int _powerUpValue;
 
-    // Update is called once per frame
-    void Update()
+    public override void Use(PickUpItem pui)
     {
-        
+        pui.EntityHealth.PowerUp(_powerUpValue);
+        base.Use(pui);
     }
 }

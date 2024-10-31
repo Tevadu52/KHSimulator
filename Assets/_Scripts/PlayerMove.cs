@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] Rigidbody _rb;
     [SerializeField, Range(0, 100)]
     float _speed;
+    [SerializeField] EntityHealth _playerHealth;
 
 
     public event Action OnStartMove;
@@ -40,12 +41,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<EntityHealth>().OnDeathAction += StopMoveInput;
+        _playerHealth.OnDeathAction += StopMoveInput;
         _move.action.started += StartMove;
         _move.action.canceled += StopMove;
     }
     private void OnDestroy()
     {
+        _playerHealth.OnDeathAction -= StopMoveInput;
         StopMoveInput();
     }
 
@@ -77,6 +79,12 @@ public class PlayerMove : MonoBehaviour
 
     private void StopMoveInput()
     {
+        OnStopMove?.Invoke();
+        _rb.linearVelocity = Vector3.zero;
+
+        StopCoroutine(MovementRoutine);
+        MovementRoutine = null;
+
         _move.action.started -= StartMove;
         _move.action.canceled -= StopMove;
     }
