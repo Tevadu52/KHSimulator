@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] InputActionReference _attack;
+    [SerializeField] GameObject _attackRange;
     [SerializeField] EntityHealth _playerHealth;
 
     public event Action OnAttack;
@@ -27,7 +28,14 @@ public class PlayerAttack : MonoBehaviour
 
     private void StartAttack(InputAction.CallbackContext obj)
     {
-
+        OnAttack.Invoke();
+        StartCoroutine(AttackCor());
+        IEnumerator AttackCor()
+        {
+            _attackRange.SetActive(true);
+            yield return new WaitForSeconds(.2f);
+            _attackRange.SetActive(false);
+        }
     }
 
     private void StopAttackInput()

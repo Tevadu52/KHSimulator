@@ -237,16 +237,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 27752331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31386448ed24ef4a834e9e8d54ae1ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ccaa03c063e0024e8b3dcc9a945dea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 0
-  OnHit:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
+  _Health: {fileID: 395592694}
 --- !u!1 &58043774
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 395592695}
   - component: {fileID: 395592694}
+  - component: {fileID: 395592697}
   - component: {fileID: 395592696}
   m_Layer: 0
   m_Name: BreakableCube
@@ -791,7 +786,19 @@ MonoBehaviour:
       m_Calls: []
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 395592697}
+        m_TargetAssemblyTypeName: OnDieResult, A2POO
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &395592695
 Transform:
   m_ObjectHideFlags: 0
@@ -835,6 +842,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &395592697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395592693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1e2951baa965643b427c3e16ffdd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f72b57696a4fd44686ee9ab3191a519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0
+  _damage: 25
 --- !u!1 &1044316933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +2064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attack: {fileID: -8057493745806942244, guid: 7465c15ff2f50e14295da1356a60d5be,
     type: 3}
+  _attackRange: {fileID: 863578697}
   _playerHealth: {fileID: 1349007869}
 --- !u!1001 &1576631183
 PrefabInstance:
@@ -2789,7 +2809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ccaa03c063e0024e8b3dcc9a945dea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: {fileID: 1349007869}
+  _Health: {fileID: 1349007869}
 --- !u!1001 &1794143064
 PrefabInstance:
   m_ObjectHideFlags: 0

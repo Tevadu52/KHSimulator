@@ -79,11 +79,14 @@ public class PlayerMove : MonoBehaviour
 
     private void StopMoveInput()
     {
-        OnStopMove?.Invoke();
-        _rb.linearVelocity = Vector3.zero;
+        if (MovementRoutine != null)
+        {
+            OnStopMove?.Invoke();
+            _rb.linearVelocity = Vector3.zero;
 
-        StopCoroutine(MovementRoutine);
-        MovementRoutine = null;
+            StopCoroutine(MovementRoutine);
+            MovementRoutine = null;
+        }
 
         _move.action.started -= StartMove;
         _move.action.canceled -= StopMove;
